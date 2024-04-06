@@ -12,7 +12,7 @@ let editMode: boolean = false;
 
 let editId: number | null = null;
 
-function addToCard() {
+function addToCart() {
   const title = (_el('prod_title') as HTMLInputElement).value;
   const qty = (_el('prod_qty') as HTMLInputElement).valueAsNumber;
   const price = (_el('prod_price') as HTMLInputElement).valueAsNumber;
