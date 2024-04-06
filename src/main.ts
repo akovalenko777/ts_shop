@@ -5,6 +5,7 @@ interface ICart {
 }
 
 import { _el } from "./helpers"
+import toast from "./toast"
 
 const CART: ICart[] = []
 
@@ -18,20 +19,19 @@ function addToCart() {
   const price = (_el('prod_price') as HTMLInputElement).valueAsNumber;
 
   if(title=== '') {
-    //TODO: need to add toast function
-      // toast.error('Enter title')
+      toast.error('Enter title')
       return;
   }
   if(isNaN(qty)) {
-      // toast.error('Enter quantity')
+      toast.error('Enter quantity')
       return;
   }
   if(qty <= 0){
-      // toast.error('Incorect quantity')
+      toast.error('Incorect quantity')
       return;
   }
   if(isNaN(price)) {
-      // toast.error('Enter price')
+      toast.error('Enter price')
       return;
   }
   if (editMode){
@@ -40,7 +40,7 @@ function addToCart() {
           qty,
           price
       }
-      // toast.success ('Product updated')
+      toast.success ('Product updated')
       editMode = false;
       editId = null;
   }else{
@@ -54,7 +54,7 @@ function addToCart() {
       }else {
           CART[prodIndex].qty += qty;
       }
-      // toast.success('Product added');
+      toast.success('Product added');
   }
 
 
